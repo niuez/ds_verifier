@@ -1,5 +1,9 @@
+#ifndef UNIT_TEST_TEST_HPP
+#define UNIT_TEST_TEST_HPP
+
 #include <exception>
 #include <string>
+#include <iostream>
 
 #define STRINGFY(s) #s
 #define TOSTRING(s) STRINGFY(s)
@@ -12,7 +16,20 @@ struct test_error: std::exception {
   const char* what() const noexcept { return message.c_str(); }
 };
 
+#define TEST_START() \
+  int main() { \
+    try
+
+#define TEST_END() \
+    catch(test_error e){ \
+      std::cout << "[ Failure ] : " << e.what() << std::endl; \
+      return 1; \
+    } \
+    std::cout << "[ Passed ]" << std::endl; \
+    return 0; \
+  }
 #define TEST_ASSERT(boolean, message) \
   if(!(boolean)) { \
     throw test_error(PREFIX, message); \
   }
+#endif
