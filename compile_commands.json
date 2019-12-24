@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/niuez/play/ds_verifier/build/src",
+  "command": "/usr/bin/c++   -I/home/niuez/play/ds_verifier/./src    -o CMakeFiles/ctest_x.dir/ctest_test.cpp.o -c /home/niuez/play/ds_verifier/src/ctest_test.cpp",
+  "file": "/home/niuez/play/ds_verifier/src/ctest_test.cpp"
+},
+{
+  "directory": "/home/niuez/play/ds_verifier/build/src",
+  "command": "/usr/bin/c++   -I/home/niuez/play/ds_verifier/./src    -o CMakeFiles/ctest_f.dir/ctest_fail.cpp.o -c /home/niuez/play/ds_verifier/src/ctest_fail.cpp",
+  "file": "/home/niuez/play/ds_verifier/src/ctest_fail.cpp"
+}
+]
