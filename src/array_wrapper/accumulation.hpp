@@ -19,6 +19,10 @@ namespace ds {
     accumulation<value_type> accum;
 
   public:
+
+    static constexpr const char* name() { return "accumulation"; }
+
+  public:
     array_wrapper() {};
     array_wrapper(const std::vector<T>& init) : accum(init) {}
 

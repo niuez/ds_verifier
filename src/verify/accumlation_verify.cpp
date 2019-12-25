@@ -20,8 +20,8 @@ TEST_START() {
     >;
 
   std::mt19937 gen(1);
-
-  TEST_ASSERT(accum_verify()(gen), "accum_verify failure");
+  accum_verify()(gen, "accumulation_example1").detail();
+  return 1;
 }
 TEST_END()
 

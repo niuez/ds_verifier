@@ -27,7 +27,6 @@
       "accumulate from index 0"
     ],
     "fail_at" : {
-      "q" : 50,
       "query" : "accumulate from index 0",
       "info" : "r = 5 : target return 5 but checker return 6."
     }
