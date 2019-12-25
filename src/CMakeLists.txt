@@ -1,4 +1,5 @@
 add_subdirectory(array_wrapper)
+add_subdirectory(verify)
 
 add_executable(ctest_x ctest_test.cpp)
 

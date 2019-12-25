@@ -1,3 +1,6 @@
+#ifndef VERIFIER_HPP
+#define VERIFIER_HPP
+
 #include <utility>
 
 namespace ds {
@@ -22,12 +25,14 @@ namespace ds {
     verifier() {}
 
     bool operator()(Gen& gen) const {
-      target_type target = init_method::template generate<target_type>(gen);
-      checker_type checker = init_method::template generate<checker_type>(gen);
+      init_method init(gen);
+      target_type target = init.template initialize<target_type>();
+      checker_type checker = init.template initialize<checker_type>();
 
       for(size_type i = 0; i < Q; i++) {
         Query query;
-        if(query(gen, target) != query(gen, target)) {
+        Gen checker_gen = gen;
+        if(query(gen, target) != query(checker_gen, checker)) {
           return false;
         }
       }
@@ -35,3 +40,5 @@ namespace ds {
     }
   };
 }
+
+#endif
