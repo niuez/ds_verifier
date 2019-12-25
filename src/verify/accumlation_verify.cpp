@@ -18,7 +18,9 @@ TEST_START() {
     300,
     ds::accum_from0_query<i32>
     >;
+
   std::mt19937 gen(1);
+
   TEST_ASSERT(accum_verify()(gen), "accum_verify failure");
 }
 TEST_END()
