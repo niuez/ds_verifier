@@ -1,0 +1,41 @@
+name: CMake
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: install cmake
+      run: |
+        sudo apt update -y
+        sudo apt install cmake -y
+    - name: cmake build
+      run: |
+        mkdir build
+        cmake -H. -Bbuild
+      run: make
+    - name: make
+      run: (cd build && make)
+    - name: verify
+      run: |
+        (cd build && python3 ../verify.py)
+        mkdir .ds_verify
+        cp build/verify_results.json .ds_verify/
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v1.5.4
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COMMIT_MESSAGE: Build Book
+        COMMIT_AUTHOR_EMAIL: niuez.graph@gmail.com
+        COMMIT_AUTHOR_NAME: niuez
+        PULL_REQUEST_TITLE: 'ds_verify'
+        PULL_REQUEST_BODY: |
+          Build Book for GitHub Pages
+        PULL_REQUEST_BRANCH: ds_verify
+        BRANCH_SUFFIX: short-commit-hash
+    - name: Check output environment variable
+      run: echo "Pull Request Number - $PULL_REQUEST_NUMBER"
