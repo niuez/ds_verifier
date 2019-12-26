@@ -5,6 +5,11 @@
 #include <vector>
 #include <iostream>
 #include <random>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+#include <json11/json11.h>
 
 namespace ds {
 
@@ -13,6 +18,18 @@ namespace ds {
 
   template<>
   const char* gen_name<std::mt19937>() { return "std::mt19937"; }
+
+
+  std::string get_timestamp() {
+    auto timestamp = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::system_clock::now());
+    std::time_t t = std::chrono::system_clock::to_time_t(timestamp);
+    const std::tm* lt = std::localtime(&t);
+    std::stringstream ss;
+    ss << std::put_time(lt, "%Y-%m-%d %H:%M:%S");
+    return ss.str();
+  }
+
+  
 
   struct fail_at {
     const std::string query;
@@ -39,7 +56,7 @@ namespace ds {
     static verify_status success(const std::string& test_case) {
       return verify_status {
         test_case,
-        "[ -- timestamp here -- ]",
+        get_timestamp(),
         true,
         fail_at()
       };
@@ -47,7 +64,7 @@ namespace ds {
     static verify_status failure(const std::string& test_case, const fail_at& failat) {
       return verify_status {
         test_case,
-        "[ --timestamp here-- ]",
+        get_timestamp(),
         false,
         failat
       };
@@ -69,7 +86,23 @@ namespace ds {
         std::cout << failat.info << std::endl;
       }
     }
+
+    json11::Json to_json() const {
+      return json11::Json::object({
+            { "test_case", test_case },
+            { "timestamp", timestamp },
+            { "target", Target::name() },
+            { "checker", Checker::name() },
+            { "gen", gen_name<Gen>() },
+            { "init_method", InitMethod::name() },
+            { "query_count", (int)Q },
+            { "status", (verified ? "verified" : "failure") },
+            { "query", Query::name() },
+            { "fail_at", (verified ? json11::Json::object() : json11::Json::object({ { "fail_query", failat.query }, { "fail_info", failat.info } })) }
+          });
+    }
   };
+
 }
 
 #endif

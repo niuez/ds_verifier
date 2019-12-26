@@ -20,7 +20,7 @@ TEST_START() {
     >;
 
   std::mt19937 gen(1);
-  accum_verify()(gen, "accumulation_example1").detail();
+  std::cout << accum_verify()(gen, "accumulation_example1").to_json().dump() << std::endl;
   return 1;
 }
 TEST_END()
