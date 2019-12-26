@@ -38,5 +38,6 @@ jobs:
         PULL_REQUEST_BODY: |
           ds_verify action
         PULL_REQUEST_BRANCH: ds_verify
+        BRANCH_SUFFIX: none
     - name: Check output environment variable
       run: echo "Pull Request Number - $PULL_REQUEST_NUMBER"
