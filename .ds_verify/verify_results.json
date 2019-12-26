@@ -1,0 +1,68 @@
+[
+  {
+    "execute_name": "accumlation2_verify",
+    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation2_verify",
+    "source_path": "src/verify/accumlation2_verify.cpp",
+    "timestamp": "2019-12-26 11:52:31",
+    "status": "OK",
+    "detail": [
+      {
+        "checker": "std::vector",
+        "fail_at": {},
+        "gen": "std::mt19937",
+        "init_method": "random vector of int32",
+        "query": "accumlate from 0 index",
+        "query_count": 300,
+        "status": "verified",
+        "target": "accumulation",
+        "test_case": "accumulation_example3",
+        "timestamp": "2019-12-26 11:52:31"
+      },
+      {
+        "checker": "std::vector",
+        "fail_at": {},
+        "gen": "std::mt19937",
+        "init_method": "random vector of int32",
+        "query": "accumlate from 0 index",
+        "query_count": 300,
+        "status": "verified",
+        "target": "accumulation",
+        "test_case": "accumulation_example4",
+        "timestamp": "2019-12-26 11:52:31"
+      }
+    ]
+  },
+  {
+    "execute_name": "accumlation_verify",
+    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
+    "source_path": "src/verify/accumlation_verify.cpp",
+    "timestamp": "2019-12-26 11:52:31",
+    "status": "OK",
+    "detail": [
+      {
+        "checker": "std::vector",
+        "fail_at": {},
+        "gen": "std::mt19937",
+        "init_method": "random vector of int32",
+        "query": "accumlate from 0 index",
+        "query_count": 300,
+        "status": "verified",
+        "target": "accumulation",
+        "test_case": "accumulation_example1",
+        "timestamp": "2019-12-26 11:52:31"
+      },
+      {
+        "checker": "std::vector",
+        "fail_at": {},
+        "gen": "std::mt19937",
+        "init_method": "random vector of int32",
+        "query": "accumlate from 0 index",
+        "query_count": 300,
+        "status": "verified",
+        "target": "accumulation",
+        "test_case": "accumulation_example2",
+        "timestamp": "2019-12-26 11:52:31"
+      }
+    ]
+  }
+]
