@@ -11,6 +11,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: change file timestamp to commit date
+      run: ./git_commit_date.sh
     - name: install cmake
       run: |
         sudo apt update -y
