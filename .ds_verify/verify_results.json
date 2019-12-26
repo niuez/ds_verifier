@@ -1,8 +1,12 @@
 {
   "accumlation2_verify": {
-    "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/accumlation2_verify",
+    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation2_verify",
     "source_path": "src/verify/accumlation2_verify.cpp",
+<<<<<<< HEAD
     "timestamp": "2019-12-26 23:13:13",
+=======
+    "timestamp": "2019-12-26 13:57:26",
+>>>>>>> c8f3aa00195f40602d3c69936a56731d8d4e38ad
     "status": "OK",
     "detail": [
       {
@@ -15,7 +19,11 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example3",
+<<<<<<< HEAD
         "timestamp": "2019-12-26 14:13:13"
+=======
+        "timestamp": "2019-12-26 13:57:26"
+>>>>>>> c8f3aa00195f40602d3c69936a56731d8d4e38ad
       },
       {
         "checker": "std::vector",
@@ -27,14 +35,22 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example4",
+<<<<<<< HEAD
         "timestamp": "2019-12-26 14:13:13"
+=======
+        "timestamp": "2019-12-26 13:57:26"
+>>>>>>> c8f3aa00195f40602d3c69936a56731d8d4e38ad
       }
     ]
   },
   "accumlation_verify": {
-    "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/accumlation_verify",
+    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
+<<<<<<< HEAD
     "timestamp": "2019-12-26 23:13:13",
+=======
+    "timestamp": "2019-12-26 13:57:26",
+>>>>>>> c8f3aa00195f40602d3c69936a56731d8d4e38ad
     "status": "OK",
     "detail": [
       {
@@ -47,7 +63,11 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example1",
+<<<<<<< HEAD
         "timestamp": "2019-12-26 14:13:13"
+=======
+        "timestamp": "2019-12-26 13:57:26"
+>>>>>>> c8f3aa00195f40602d3c69936a56731d8d4e38ad
       },
       {
         "checker": "std::vector",
@@ -59,7 +79,11 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example2",
+<<<<<<< HEAD
         "timestamp": "2019-12-26 14:13:13"
+=======
+        "timestamp": "2019-12-26 13:57:26"
+>>>>>>> c8f3aa00195f40602d3c69936a56731d8d4e38ad
       }
     ]
   }
