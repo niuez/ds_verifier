@@ -21,9 +21,8 @@ namespace ds {
 
 
   std::string get_timestamp() {
-    auto timestamp = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::system_clock::now());
-    std::time_t t = std::chrono::system_clock::to_time_t(timestamp);
-    const std::tm* lt = std::localtime(&t);
+    std::time_t t = std::time(nullptr);
+    const std::tm* lt = std::gmtime(&t);
     std::stringstream ss;
     ss << std::put_time(lt, "%Y-%m-%d %H:%M:%S");
     return ss.str();
