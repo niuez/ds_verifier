@@ -45,10 +45,12 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='generate ds_verify result')
     parser.add_argument('cmake_build_path', type=Path, default=None, help='path to cmake build directory')
+    parser.add_argument('--all', action='store_true', default=None, help='verify all files')
 
     parsed = parser.parse_args()
 
     build_path = parsed.cmake_build_path
+    all_verify_flag = parsed.all
 
     verify_list = open(build_path / "verify_list", 'r').read().split('\n')
 
@@ -59,7 +61,7 @@ if __name__ == '__main__':
         verify_exe = task_tmp[0]
         verify_source = task_tmp[1]
 
-        if is_verify_skip(verify_results, Path(verify_source)):
+        if not all_verify_flag and is_verify_skip(verify_results, Path(verify_source)):
             print("skipped: %s" % verify_source)
 
         else:
