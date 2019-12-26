@@ -1,4 +1,10 @@
 add_executable(accum_verify accumlation_verify.cpp)
-
 target_link_libraries(accum_verify ds_verifier)
 
+file(GLOB_RECURSE verify_source_list *_verify.cpp)
+foreach(verify_source IN LISTS verify_source_list)
+  message("verify_source: ${verify_source}")
+  get_filename_component(verify_name "${verify_source}" NAME_WE)
+  add_executable("${verify_name}" "${verify_source}")
+  target_link_libraries("${verify_name}" ds_verifier)
+endforeach()
