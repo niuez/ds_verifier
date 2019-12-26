@@ -1,9 +1,8 @@
-[
-  {
-    "execute_name": "accumlation2_verify",
-    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation2_verify",
+{
+  "accumlation2_verify": {
+    "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/accumlation2_verify",
     "source_path": "src/verify/accumlation2_verify.cpp",
-    "timestamp": "2019-12-26 11:52:31",
+    "timestamp": "2019-12-26 21:43:43",
     "status": "OK",
     "detail": [
       {
@@ -16,7 +15,7 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example3",
-        "timestamp": "2019-12-26 11:52:31"
+        "timestamp": "2019-12-26 12:43:43"
       },
       {
         "checker": "std::vector",
@@ -28,15 +27,14 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example4",
-        "timestamp": "2019-12-26 11:52:31"
+        "timestamp": "2019-12-26 12:43:43"
       }
     ]
   },
-  {
-    "execute_name": "accumlation_verify",
-    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
+  "accumlation_verify": {
+    "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2019-12-26 11:52:31",
+    "timestamp": "2019-12-26 21:43:43",
     "status": "OK",
     "detail": [
       {
@@ -49,7 +47,7 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example1",
-        "timestamp": "2019-12-26 11:52:31"
+        "timestamp": "2019-12-26 12:43:43"
       },
       {
         "checker": "std::vector",
@@ -61,8 +59,8 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example2",
-        "timestamp": "2019-12-26 11:52:31"
+        "timestamp": "2019-12-26 12:43:43"
       }
     ]
   }
-]
+}
