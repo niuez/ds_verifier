@@ -23,7 +23,7 @@ jobs:
       run: (cd build && make)
     - name: verify
       run: |
-        (cd build && python3 ../verify.py)
+        python3 verify.py build
         cp build/verify_results.json .ds_verify/
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v1.5.4
