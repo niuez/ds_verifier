@@ -2,6 +2,7 @@
 #define INIT_METHODS_RANDOM_INIT_VECTOR_HPP
 
 #include <vector>
+#include <string>
 
 namespace ds {
   template<class T, const size_t N>
@@ -14,6 +15,10 @@ namespace ds {
   private:
 
     std::vector<value_type> init;
+
+  public:
+
+    static std::string name() { return std::string("random vector of ") + std::string(T::name()); }
 
   public:
 

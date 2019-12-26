@@ -3,12 +3,17 @@
 
 #include <vector>
 #include <array_wrapper.hpp>
+#include <string>
 
 namespace ds {
 
   template<class T>
   class array_wrapper<T, std::vector<T>> {
     std::vector<T> arr;
+
+  public:
+
+    static constexpr const char* name() { return "std::vector";  }
 
   public:
     using size_type = std::size_t;
