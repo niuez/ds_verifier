@@ -29,13 +29,12 @@ jobs:
       uses: peter-evans/create-pull-request@v1.5.4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        COMMIT_MESSAGE: Build Book
+        COMMIT_MESSAGE: ds_verify action
         COMMIT_AUTHOR_EMAIL: niuez.graph@gmail.com
         COMMIT_AUTHOR_NAME: niuez
         PULL_REQUEST_TITLE: 'ds_verify'
         PULL_REQUEST_BODY: |
           ds_verify action
         PULL_REQUEST_BRANCH: ds_verify
-        BRANCH_SUFFIX: short-commit-hash
     - name: Check output environment variable
       run: echo "Pull Request Number - $PULL_REQUEST_NUMBER"
