@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='generate ds_verify result')
     parser.add_argument('cmake_build_path', type=Path, default=None, help='path to cmake build directory')
-    parser.add_argument('--all', action='store_true', default=None, help='verify all files')
+    parser.add_argument('--all', action='store_true', default=None, help='if all files are not change, dont run verify')
 
     parsed = parser.parse_args()
 
@@ -56,19 +56,29 @@ if __name__ == '__main__':
 
     verify_results = load_old_verify_results(".ds_verify/verify_results.json")
 
+    if all_verify_flag:
+        skip = True
+        for verify_task in verify_list[0:-1]:
+            task_tmp = verify_task.split(':')
+            verify_exe = task_tmp[0]
+            verify_source = task_tmp[1]
+
+            if not is_verify_skip(verify_results, Path(verify_source)):
+                skip = False
+
+        if skip:
+            print("all skip")
+            exit()
+
     for verify_task in verify_list[0:-1]:
         task_tmp = verify_task.split(':')
         verify_exe = task_tmp[0]
         verify_source = task_tmp[1]
 
-        if not all_verify_flag and is_verify_skip(verify_results, Path(verify_source)):
-            print("skipped: %s" % verify_source)
+        print("verify: %s" % verify_source)
 
-        else:
-            print("verify: %s" % verify_source)
-
-            (verify_name, status) = execute(Path(verify_exe), verify_source)
-            verify_results[verify_name] = status
+        (verify_name, status) = execute(Path(verify_exe), verify_source)
+        verify_results[verify_name] = status
     
     json.dump(verify_results, open(build_path / "verify_results.json", 'w'), indent=2)
 
