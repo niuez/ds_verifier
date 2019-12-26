@@ -8,7 +8,7 @@
 #include <vector>
 #include <random>
 
-TEST_START() {
+VERIFY_START() {
   using i32 = ds::int32;
   using accum_verify = ds::verifier<
     ds::array_wrapper<i32, ds::accumulation<i32>>,
@@ -20,8 +20,8 @@ TEST_START() {
     >;
 
   std::mt19937 gen(1);
-  std::cout << accum_verify()(gen, "accumulation_example1").to_json().dump() << std::endl;
-  return 1;
+  VERIFY(accum_verify()(gen, "accumulation_example1"));
+  VERIFY(accum_verify()(gen, "accumulation_example2"));
 }
-TEST_END()
+VERIFY_END();
 

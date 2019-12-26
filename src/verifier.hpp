@@ -3,6 +3,19 @@
 
 #include <utility>
 #include <verify_status.hpp>
+#include <json11/json11.h>
+
+#define VERIFY_START() \
+  int main() { \
+    std::vector<json11::Json> status; \
+
+
+#define VERIFY(st) status.push_back((st))
+
+#define VERIFY_END() \
+    std::cout << json11::Json(status).dump() << std::endl; \
+    return 0; \
+  }
 
 namespace ds {
 
