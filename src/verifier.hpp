@@ -45,8 +45,7 @@ namespace ds {
         target_type target = init.template initialize<target_type>();
         checker_type checker = init.template initialize<checker_type>();
         for(size_type i = 0; i < Q; i++) {
-          Query query(gen, target);
-          query.check(checker);
+          Query::check(gen, target, checker);
         }
       }
       catch(const fail_at& f) {

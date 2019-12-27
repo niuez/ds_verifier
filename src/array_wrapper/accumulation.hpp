@@ -4,6 +4,7 @@
 #include <vector>
 #include <data_structures/accumulation.hpp>
 #include <array_wrapper.hpp>
+#include <queries/accum_from0.hpp>
 
 namespace ds {
 
@@ -14,6 +15,7 @@ namespace ds {
   public:
     using size_type = std::size_t;
     using value_type = T;
+    using ds_type = accumulation<value_type>;
 
   private:
     accumulation<value_type> accum;
@@ -26,13 +28,26 @@ namespace ds {
     array_wrapper() {};
     array_wrapper(const std::vector<T>& init) : accum(init) {}
 
-    value_type accum_from0(size_type r) const {
-      return accum.accum_from0(r);
-    }
     size_type size() const {
       return accum.size();
     }
+
+    template<class Query, class = void> struct QueryFunc {};
+
+    template<class V> struct QueryFunc<accum_from0<value_type>, V> {
+      typename accum_from0<value_type>::result_type
+      static query(ds_type& accum, const typename accum_from0<value_type>::arg_type& r) {
+        return accum.accum_from0(r);
+      }
+    };
+
+    template<class Query>
+    typename Query::result_type query(const typename Query::arg_type& arg) {
+      return QueryFunc<Query>::query(accum, arg);
+    }
   };
+
+
 }
 
 #endif

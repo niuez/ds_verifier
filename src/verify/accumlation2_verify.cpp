@@ -16,7 +16,7 @@ VERIFY_START() {
     std::mt19937,
     ds::random_init_vector<i32, 100>,
     300,
-    ds::accum_from0_query<i32>
+    ds::accum_from0<i32>
     >;
 
   std::mt19937 gen(1);
