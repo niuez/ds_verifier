@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+{% for target in targets %}
+  <li><h2>{{target.name}}</h2></li>
+
+  <ul>
+  {% for detail in target.details %}
+  {% if detail.status == "verified" %}
+  <li><h3 style="color:#5cb85c;">{{ detail.test_case }}</h3></li>
+  {% else %}
+  <li><h3 style="color:#f0ad4e;">{{ detail.test_case }}</h3></li>
+  {% endif %}
+    <dl>
+      <dt><b>Verify Code</b></dt>
+      <dd>{{ detail.source_path }}</dd>
+      <dt><b>Query</b></dt>
+      <dd>{{ detail.query }}</dd>
+      <dt><b>Init Method</b></dt>
+      <dd>{{ detail.init_method }}</dd>
+      <dt><b>Query Count</b></dt>
+      <dd>{{ detail.query_count }}</dd>
+      <dt><b>Checker</b></dt>
+      <dd>{{ detail.checker }}</dd>
+      <dt><b>Gen</b></dt>
+      <dd>{{ detail.gen }}<dd>
+      <dt><b>TimeStamp</b></dt>
+      <dd>{{ detail.timestamp }}</dd>
+      <dt><b>Status</b></dt>
+      <dd>{{ detail.status }}</dd>
+      {% if detail.stauts == "failure" %}
+      <dt><b>Fail Info</b></dt>
+      <dd>{{ detail.fail_info }}</dd>
+      {% endif %}
+    </dl>
+  {% endfor %}
+  </ul>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

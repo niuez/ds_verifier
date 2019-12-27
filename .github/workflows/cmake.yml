@@ -17,6 +17,8 @@ jobs:
       run: |
         sudo apt update -y
         sudo apt install cmake -y
+    - name: install jinja2
+      run: sudo pip install jinja2
     - name: cmake build
       run: |
         mkdir build
@@ -27,6 +29,8 @@ jobs:
       run: |
         python3 verify.py build --all
         cp build/verify_results.json .ds_verify/
+    - name: generate verify html
+      run: python3 generate.py
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v1.5.4
       env:
