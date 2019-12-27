@@ -2,7 +2,7 @@
   "accumlation2_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation2_verify",
     "source_path": "src/verify/accumlation2_verify.cpp",
-    "timestamp": "2019-12-27 04:05:16",
+    "timestamp": "2019-12-27 13:19:45",
     "status": "OK",
     "detail": [
       {
@@ -10,31 +10,31 @@
         "fail_at": {},
         "gen": "std::mt19937",
         "init_method": "random vector of int32",
-        "query": "accumlate from 0 index",
+        "query": "accumlation from 0 index",
         "query_count": 300,
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example3",
-        "timestamp": "2019-12-27 04:05:16"
+        "timestamp": "2019-12-27 13:19:45"
       },
       {
         "checker": "std::vector",
         "fail_at": {},
         "gen": "std::mt19937",
         "init_method": "random vector of int32",
-        "query": "accumlate from 0 index",
+        "query": "accumlation from 0 index",
         "query_count": 300,
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example4",
-        "timestamp": "2019-12-27 04:05:16"
+        "timestamp": "2019-12-27 13:19:45"
       }
     ]
   },
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2019-12-27 04:05:16",
+    "timestamp": "2019-12-27 13:19:45",
     "status": "OK",
     "detail": [
       {
@@ -42,24 +42,24 @@
         "fail_at": {},
         "gen": "std::mt19937",
         "init_method": "random vector of int32",
-        "query": "accumlate from 0 index",
+        "query": "accumlation from 0 index",
         "query_count": 300,
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example1",
-        "timestamp": "2019-12-27 04:05:16"
+        "timestamp": "2019-12-27 13:19:45"
       },
       {
         "checker": "std::vector",
         "fail_at": {},
         "gen": "std::mt19937",
         "init_method": "random vector of int32",
-        "query": "accumlate from 0 index",
+        "query": "accumlation from 0 index",
         "query_count": 300,
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example2",
-        "timestamp": "2019-12-27 04:05:16"
+        "timestamp": "2019-12-27 13:19:45"
       }
     ]
   }
