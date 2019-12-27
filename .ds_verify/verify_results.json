@@ -2,7 +2,7 @@
   "accumlation2_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation2_verify",
     "source_path": "src/verify/accumlation2_verify.cpp",
-    "timestamp": "2019-12-27 13:19:45",
+    "timestamp": "2019-12-27 13:31:15",
     "status": "OK",
     "detail": [
       {
@@ -15,7 +15,7 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example3",
-        "timestamp": "2019-12-27 13:19:45"
+        "timestamp": "2019-12-27 13:31:14"
       },
       {
         "checker": "std::vector",
@@ -27,14 +27,14 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example4",
-        "timestamp": "2019-12-27 13:19:45"
+        "timestamp": "2019-12-27 13:31:15"
       }
     ]
   },
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2019-12-27 13:19:45",
+    "timestamp": "2019-12-27 13:31:15",
     "status": "OK",
     "detail": [
       {
@@ -47,7 +47,7 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example1",
-        "timestamp": "2019-12-27 13:19:45"
+        "timestamp": "2019-12-27 13:31:15"
       },
       {
         "checker": "std::vector",
@@ -59,7 +59,7 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation_example2",
-        "timestamp": "2019-12-27 13:19:45"
+        "timestamp": "2019-12-27 13:31:15"
       }
     ]
   }
