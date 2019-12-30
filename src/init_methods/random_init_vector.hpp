@@ -25,7 +25,7 @@ namespace ds {
     template<class Gen>
     random_init_vector(Gen& gen) : init(N) {
       for(size_type i = 0;i < N;i++) {
-        init[i] = T(gen);
+        init[i] = value_type::generate(gen);
       }
     }
 

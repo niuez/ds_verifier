@@ -1,11 +1,13 @@
 #include <utility>
 #include <cassert>
 #include <random>
+#include <string>
 
 namespace ds {
 
   template<class... Queries>
   class random_choise {
+
   public:
     using size_type = std::size_t;
 
@@ -18,7 +20,10 @@ namespace ds {
       template<class Gen, class Target, class Checker>
       static void checker(size_type n, Gen& gen, Target& target, Checker& checker) {
         if(sizeof...(Qs) == n) Q::check(gen, target, checker);
-        else Checker<Qs...>::checker(n, gen, target, checker);
+        else random_choise::Checker<Qs...>::template checker<Gen, Target, Checker>(n, gen, target, checker);
+      }
+      static std::string name() {
+        return "[" + std::string(Q::name()) + "], " + Checker<Qs...>::name();
       }
     };
 
@@ -29,9 +34,17 @@ namespace ds {
         assert(n == 0);
         Q::check(gen, target, checker);
       }
+      static std::string name() {
+        return "[" + std::string(Q::name()) + "]";
+      }
     };
 
+
   public:
+
+    static std::string name() {
+      return std::string("random_choise from ") + Checker<Queries...>::name();
+    }
 
     template<class Gen, class Target, class Checker>
     static void check(Gen& gen, Target& target, Checker& checker) {
