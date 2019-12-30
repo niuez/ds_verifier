@@ -70,6 +70,7 @@ if __name__ == '__main__':
             print("all skip")
             exit()
 
+    verify_results = {}
     for verify_task in verify_list[0:-1]:
         task_tmp = verify_task.split(':')
         verify_exe = task_tmp[0]

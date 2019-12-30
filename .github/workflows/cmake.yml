@@ -3,7 +3,8 @@ name: CMake
 on:
   push:
     branches: master
-
+    paths:
+    - 'src/**'
 jobs:
   build:
 
@@ -27,7 +28,7 @@ jobs:
       run: (cd build && make)
     - name: verify
       run: |
-        python3 verify.py build --all
+        python3 verify.py build
         cp build/verify_results.json .ds_verify/
     - name: generate verify html
       run: python3 generate.py

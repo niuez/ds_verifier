@@ -16,7 +16,7 @@ namespace ds {
 
   public:
 
-    static constexpr const char* name() { return "std::vector";  }
+    static constexpr const char* name() { return "segment_tree";  }
 
 
   public:
