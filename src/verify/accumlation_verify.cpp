@@ -20,8 +20,7 @@ VERIFY_START() {
     >;
 
   std::mt19937 gen(1);
-  VERIFY(accum_verify()(gen, "accumulation_example1"));
-  VERIFY(accum_verify()(gen, "accumulation_example2"));
+  VERIFY(accum_verify()(gen, "accumulation"));
 }
 VERIFY_END();
 
