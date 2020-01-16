@@ -4,21 +4,23 @@
 #include <queries/random_choise.hpp>
 #include <array_wrapper/vector.hpp>
 #include <array_wrapper/segment_tree.hpp>
-#include <data/int32.hpp>
+#include <data/modint.hpp>
+#include <data/composite.hpp>
 #include <unit_test/test.hpp>
 #include <vector>
 #include <random>
 
 VERIFY_START() {
-  using i32 = ds::int32;
+  using fp = ds::modint998244353;
+  using composite = ds::composite<fp>;
   {
     using seg_verify = ds::verifier<
-      ds::array_wrapper<i32, niu::segment_tree<i32>>,
-      ds::array_wrapper<i32, std::vector<i32>>,
+      ds::array_wrapper<composite, niu::segment_tree<composite>>,
+      ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
-      ds::random_init_vector<i32, 500>,
+      ds::random_init_vector<composite, 500>,
       500,
-      ds::accum_from0<i32>
+      ds::accum_from0<composite>
         >;
 
     std::mt19937 gen(1);
@@ -26,12 +28,12 @@ VERIFY_START() {
   }
   {
     using seg_verify = ds::verifier<
-      ds::array_wrapper<i32, niu::segment_tree<i32>>,
-      ds::array_wrapper<i32, std::vector<i32>>,
+      ds::array_wrapper<composite, niu::segment_tree<composite>>,
+      ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
-      ds::random_init_vector<i32, 500>,
+      ds::random_init_vector<composite, 500>,
       500,
-      ds::update_at<i32>
+      ds::update_at<composite>
         >;
 
     std::mt19937 gen(1);
@@ -39,14 +41,14 @@ VERIFY_START() {
   }
   {
     using seg_verify = ds::verifier<
-      ds::array_wrapper<i32, niu::segment_tree<i32>>,
-      ds::array_wrapper<i32, std::vector<i32>>,
+      ds::array_wrapper<composite, niu::segment_tree<composite>>,
+      ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
-      ds::random_init_vector<i32, 500>,
+      ds::random_init_vector<composite, 500>,
       500,
       ds::random_choise<
-        ds::accum_from0<i32>,
-        ds::update_at<i32>
+        ds::accum_from0<composite>,
+        ds::update_at<composite>
         >
       >;
 
