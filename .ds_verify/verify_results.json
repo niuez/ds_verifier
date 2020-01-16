@@ -2,7 +2,7 @@
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2019-12-30 12:56:54",
+    "timestamp": "2020-01-16 16:59:45",
     "status": "OK",
     "detail": [
       {
@@ -14,64 +14,52 @@
         "query_count": 300,
         "status": "verified",
         "target": "accumulation",
-        "test_case": "accumulation_example1",
-        "timestamp": "2019-12-30 12:56:54"
-      },
-      {
-        "checker": "std::vector",
-        "fail_at": {},
-        "gen": "std::mt19937",
-        "init_method": "random vector of int32",
-        "query": "accumlation from 0 index",
-        "query_count": 300,
-        "status": "verified",
-        "target": "accumulation",
-        "test_case": "accumulation_example2",
-        "timestamp": "2019-12-30 12:56:54"
+        "test_case": "accumulation",
+        "timestamp": "2020-01-16 16:59:45"
       }
     ]
   },
   "segment_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/segment_tree_verify",
     "source_path": "src/verify/segment_tree_verify.cpp",
-    "timestamp": "2019-12-30 12:56:54",
+    "timestamp": "2020-01-16 16:59:45",
     "status": "OK",
     "detail": [
       {
         "checker": "std::vector",
         "fail_at": {},
         "gen": "std::mt19937",
-        "init_method": "random vector of int32",
+        "init_method": "random vector of composite<modint<998244353>>",
         "query": "accumlation from 0 index",
         "query_count": 500,
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_accum",
-        "timestamp": "2019-12-30 12:56:54"
+        "timestamp": "2020-01-16 16:59:45"
       },
       {
         "checker": "std::vector",
         "fail_at": {},
         "gen": "std::mt19937",
-        "init_method": "random vector of int32",
+        "init_method": "random vector of composite<modint<998244353>>",
         "query": "update at",
         "query_count": 500,
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_update_at",
-        "timestamp": "2019-12-30 12:56:54"
+        "timestamp": "2020-01-16 16:59:45"
       },
       {
         "checker": "std::vector",
         "fail_at": {},
         "gen": "std::mt19937",
-        "init_method": "random vector of int32",
+        "init_method": "random vector of composite<modint<998244353>>",
         "query": "random_choise from [accumlation from 0 index], [update at]",
         "query_count": 500,
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_accum0_update",
-        "timestamp": "2019-12-30 12:56:54"
+        "timestamp": "2020-01-16 16:59:45"
       }
     ]
   }
