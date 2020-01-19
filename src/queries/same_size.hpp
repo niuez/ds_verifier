@@ -12,7 +12,11 @@ namespace ds {
   class same_size {
   public:
     
-    static constexpr const char* name() { return "check same size"; }
+    static json11::Json json() {
+      return json11::Json::object({
+          { "name", "same_size"  }
+          });
+    }
 
   public:
 
@@ -30,7 +34,7 @@ namespace ds {
       if(target.size() != checker.size()) {
         std::stringstream ss;
         ss << "target size is " << target.size() << " but checker size is" << checker.size();
-        throw fail_at(query_type::name(), ss.str());
+        throw fail_at("same_size", ss.str());
       }
     }
   };

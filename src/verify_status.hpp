@@ -77,7 +77,7 @@ namespace ds {
       os << "init_method: " << "" << std::endl;
       os << "query count: " << "" << std::endl;
       os << "stauts: " << (verified ? "verified" : "failure") << std::endl;
-      os << "Query: " << Query::name() << std::endl;
+      os << "Query: " << Query::json().dump() << std::endl;
       if(!verified) {
         os << failat.query << std::endl;
         os << failat.info << std::endl;
@@ -94,7 +94,7 @@ namespace ds {
             { "init_method", "" },
             { "query_count", 0 },
             { "status", (verified ? "verified" : "failure") },
-            { "query", Query::name() },
+            { "query", Query::json() },
             { "fail_at", (verified ? json11::Json::object() : json11::Json::object({ { "fail_query", failat.query }, { "fail_info", failat.info } })) }
           });
     }

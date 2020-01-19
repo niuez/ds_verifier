@@ -17,7 +17,7 @@ namespace ds {
 
   public:
 
-    static constexpr const char* name() { return "segment_tree";  }
+    static constexpr const char* name() { return "fenwick_tree";  }
 
 
   public:

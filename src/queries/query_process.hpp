@@ -2,6 +2,8 @@
 #include <cassert>
 #include <random>
 #include <string>
+#include <algorithm>
+#include <json11/json11.h>
 
 namespace ds {
 
@@ -20,14 +22,20 @@ namespace ds {
 
   public:
 
-    static std::string name_rec() {
-      return std::string("[") + query_type::name() + "] -> " + qs_type::name_rec();
+    static std::vector<json11::Json> json_rec() {
+      std::vector<json11::Json> vec = qs_type::json_rec();
+      vec.push_back(query_type::json());
+      return vec;
     }
 
-    static std::string name() {
-      return std::string("query_process for ")
-           + std::to_string(Q_count)
-           + std::string(" times { ") + name_rec() + std::string(" }");
+    static json11::Json json() {
+      std::vector<json11::Json> queries_json = json_rec();
+      std::reverse(begin(queries_json), end(queries_json));
+      return json11::Json::object({
+          { "name", "query_process" },
+          { "query_count", (int)(Q_count) },
+          { "process", queries_json  }
+          });
     }
 
     template<class Gen, class Target, class Checker>
@@ -57,14 +65,20 @@ namespace ds {
 
   public:
 
-    static std::string name_rec() {
-      return std::string("[") + query_type::name() + "]";
+    static std::vector<json11::Json> json_rec() {
+      std::vector<json11::Json> vec;
+      vec.push_back(query_type::json());
+      return vec;
     }
 
-    static std::string name() {
-      return std::string("query_process for ")
-           + std::to_string(Q_count)
-           + std::string(" times { ") + name_rec() + std::string(" }");
+    static json11::Json json() {
+      std::vector<json11::Json> queries_json = json_rec();
+      std::reverse(begin(queries_json), end(queries_json));
+      return json11::Json::object({
+          { "name", "query_process" },
+          { "query_count", (int)(Q_count) },
+          { "process", queries_json  }
+          });
     }
 
     template<class Gen, class Target, class Checker>

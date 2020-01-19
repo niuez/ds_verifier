@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <json11/json11.h>
 
 namespace ds {
   template<class Init, class Q>
@@ -19,12 +20,12 @@ namespace ds {
 
   public:
 
-    static std::string name() {
-      return std::string("init once by { ")
-           + std::string(init_query::name())
-           + std::string(" }, and query { ")
-           + query_type::name()
-           + std::string(" }");
+    static json11::Json json() {
+      return json11::Json::object({
+            { "name", "init_once" },
+            { "init_method", init_query::json() },
+            { "query", query_type::json() }
+          });
     }
 
   public:

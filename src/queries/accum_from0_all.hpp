@@ -13,7 +13,11 @@ namespace ds {
   class accum_from0_all {
   public:
     
-    static constexpr const char* name() { return "accumlation from 0 index to all"; }
+    static json11::Json json() {
+      return json11::Json::object({
+          { "name", "accum_from0_all"  }
+          });
+    }
 
   public:
 
@@ -36,7 +40,7 @@ namespace ds {
         if(tres != cres) {
           std::stringstream ss;
           ss << "r = " << r << " : target results " << tres << " but checker results" << cres;
-          throw fail_at(query_type::name(), ss.str());
+          throw fail_at("accum_from0_all", ss.str());
         }
       }
     }

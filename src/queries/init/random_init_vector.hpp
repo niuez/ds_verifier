@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <json11/json11.h>
 
 namespace ds {
   template<class T, const size_t N>
@@ -14,8 +15,13 @@ namespace ds {
 
   public:
 
-    static std::string name() { return std::string("random vector of ") + std::string(T::name()); }
-
+    static json11::Json json() {
+      return json11::Json::object({
+            { "name", "random_init_vector" },
+            { "type", value_type::name() },
+            { "size", (int)N }
+          });
+    }
   public:
 
     template<class Gen, class Target, class Checker>

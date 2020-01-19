@@ -16,7 +16,11 @@ namespace ds {
     same_size<T> size_checker;
   public:
     
-    static constexpr const char* name() { return "update at"; }
+    static json11::Json json() {
+      return json11::Json::object({
+          { "name", "update_at"  }
+          });
+    }
 
   public:
 
