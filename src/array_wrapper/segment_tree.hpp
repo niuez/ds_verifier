@@ -1,5 +1,5 @@
-#ifndef ARRAY_WRAPPER_VECTOR_HPP
-#define ARRAY_WRAPPER_VECTOR_HPP
+#ifndef ARRAY_WRAPPER_SEGMENT_TREE_HPP
+#define ARRAY_WRAPPER_SEGMENT_TREE_HPP
 
 #include <vector>
 #include <string>
@@ -7,66 +7,63 @@
 #include <queries/accum_from0.hpp>
 #include <queries/access_at.hpp>
 #include <queries/update_at.hpp>
+#include <data_structures/segment_tree.hpp>
 
 namespace ds {
 
   template<class T>
-  class array_wrapper<T, std::vector<T>> {
+  class array_wrapper<T, niu::segment_tree<T>> {
 
   public:
 
-    static constexpr const char* name() { return "std::vector";  }
+    static constexpr const char* name() { return "segment_tree";  }
 
 
   public:
     using size_type = std::size_t;
     using value_type = T;
-    using ds_type = std::vector<value_type>;
+    using ds_type = niu::segment_tree<value_type>;
 
   private:
 
-    std::vector<value_type> arr;
+    niu::segment_tree<value_type> seg;
 
   public:
 
     array_wrapper() {};
-    array_wrapper(const std::vector<T>& init) : arr(init) {}
+    array_wrapper(const std::vector<T>& init) : seg(init) {}
 
     size_type size() const {
-      return arr.size();
+      return seg.size();
     }
 
     template<class Query, class = void> struct QueryFunc {};
 
     template<class V> struct QueryFunc<accum_from0<value_type>, V> {
       typename accum_from0<value_type>::result_type
-      static query(ds_type& arr, const typename accum_from0<value_type>::arg_type& r) {
-        T ans = T();
-        for(size_type i = 0;i < r;i++) {
-          ans = ans + arr[i];
-        }
-        return ans;
+      static query(ds_type& seg, const typename accum_from0<value_type>::arg_type& r) {
+        return seg.sum(0, r);
       }
     };
 
     template<class V> struct QueryFunc<access_at<value_type>, V> {
       typename access_at<value_type>::result_type
-      static query(ds_type& arr, const typename access_at<value_type>::arg_type& arg) {
-        return arr[arg];
+      static query(ds_type& seg, const typename access_at<value_type>::arg_type& arg) {
+        return seg.at(arg);
       }
     };
 
     template<class V> struct QueryFunc<update_at<value_type>, V> {
       typename update_at<value_type>::result_type
-      static query(ds_type& arr, const typename update_at<value_type>::arg_type& arg) {
-        arr[arg.idx] = arg.new_value;
+      static query(ds_type& seg, const typename update_at<value_type>::arg_type& arg) {
+        seg.update(arg.idx, arg.new_value);
         return 0;
       }
     };
 
     template<class Query>
     typename Query::result_type query(const typename Query::arg_type& arg) {
-      return QueryFunc<Query>::query(arr, arg);
+      return QueryFunc<Query>::query(seg, arg);
     }
   };
 }

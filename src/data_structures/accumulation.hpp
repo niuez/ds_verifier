@@ -13,7 +13,7 @@ namespace ds {
 
   private:
 
-    const size_type N;
+    size_type N;
     std::vector<value_type> arr;
 
   public:

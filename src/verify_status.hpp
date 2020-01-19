@@ -42,8 +42,6 @@ namespace ds {
     class Target,
     class Checker,
     class Gen,
-    class InitMethod,
-    const std::size_t Q,
     class Query
   >
   struct verify_status {
@@ -69,20 +67,20 @@ namespace ds {
       };
     }
 
-    void detail() const {
-      std::cout << "----- verify status -----" << std::endl;
-      std::cout << "test_case: " << test_case << std::endl;
-      std::cout << "timestamp: " << timestamp << std::endl;
-      std::cout << "target: " << Target::name() << std::endl;
-      std::cout << "checker: " << Checker::name() << std::endl;
-      std::cout << "gen: " << gen_name<Gen>() << std::endl;
-      std::cout << "init_method: " << InitMethod::name() << std::endl;
-      std::cout << "queri count: " << Q << std::endl;
-      std::cout << "stauts: " << (verified ? "verified" : "failure") << std::endl;
-      std::cout << "Query: " << Query::name() << std::endl;
+    void detail(std::ostream& os) const {
+      os << "----- verify status -----" << std::endl;
+      os << "test_case: " << test_case << std::endl;
+      os << "timestamp: " << timestamp << std::endl;
+      os << "target: " << Target::name() << std::endl;
+      os << "checker: " << Checker::name() << std::endl;
+      os << "gen: " << gen_name<Gen>() << std::endl;
+      os << "init_method: " << "" << std::endl;
+      os << "query count: " << "" << std::endl;
+      os << "stauts: " << (verified ? "verified" : "failure") << std::endl;
+      os << "Query: " << Query::json().dump() << std::endl;
       if(!verified) {
-        std::cout << failat.query << std::endl;
-        std::cout << failat.info << std::endl;
+        os << failat.query << std::endl;
+        os << failat.info << std::endl;
       }
     }
 
@@ -93,10 +91,10 @@ namespace ds {
             { "target", Target::name() },
             { "checker", Checker::name() },
             { "gen", gen_name<Gen>() },
-            { "init_method", InitMethod::name() },
-            { "query_count", (int)Q },
+            { "init_method", "" },
+            { "query_count", 0 },
             { "status", (verified ? "verified" : "failure") },
-            { "query", Query::name() },
+            { "query", Query::json() },
             { "fail_at", (verified ? json11::Json::object() : json11::Json::object({ { "fail_query", failat.query }, { "fail_info", failat.info } })) }
           });
     }

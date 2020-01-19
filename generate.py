@@ -20,6 +20,7 @@ if __name__ == '__main__':
         if result['status'] == 'OK':
             for detail in result['detail']:
                 detail['source_path'] = result['source_path']
+                detail['query'] = json.dumps(detail['query'], indent=2)
                 if detail['status'] == 'failure':
                     detail['fail_info'] = detail['fail_at']['fail_info']
                 if detail['target'] not in verify_targets:

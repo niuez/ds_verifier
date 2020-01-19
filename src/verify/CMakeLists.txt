@@ -1,6 +1,3 @@
-add_executable(accum_verify accumlation_verify.cpp)
-target_link_libraries(accum_verify ds_verifier)
-
 file(GLOB_RECURSE verify_source_list *_verify.cpp)
 
 set(verify_list)
