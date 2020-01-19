@@ -2,7 +2,7 @@
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2020-01-16 16:59:45",
+    "timestamp": "2020-01-19 04:26:31",
     "status": "OK",
     "detail": [
       {
@@ -15,14 +15,14 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation",
-        "timestamp": "2020-01-16 16:59:45"
+        "timestamp": "2020-01-19 04:26:31"
       }
     ]
   },
   "segment_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/segment_tree_verify",
     "source_path": "src/verify/segment_tree_verify.cpp",
-    "timestamp": "2020-01-16 16:59:45",
+    "timestamp": "2020-01-19 04:26:31",
     "status": "OK",
     "detail": [
       {
@@ -35,7 +35,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_accum",
-        "timestamp": "2020-01-16 16:59:45"
+        "timestamp": "2020-01-19 04:26:31"
       },
       {
         "checker": "std::vector",
@@ -47,7 +47,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_update_at",
-        "timestamp": "2020-01-16 16:59:45"
+        "timestamp": "2020-01-19 04:26:31"
       },
       {
         "checker": "std::vector",
@@ -59,7 +59,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_accum0_update",
-        "timestamp": "2020-01-16 16:59:45"
+        "timestamp": "2020-01-19 04:26:31"
       }
     ]
   }
