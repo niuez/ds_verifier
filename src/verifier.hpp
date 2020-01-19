@@ -36,16 +36,18 @@ namespace ds {
     using checker_type = Checker;
     using init_method = InitMethod;
     using status_type = verify_status<Target, Checker, Gen, InitMethod, Q, Query>;
+    using query_type = Query;
 
     verifier() {}
 
     status_type operator()(Gen& gen, const std::string& test_case) const {
       try {
+        query_type query;
         init_method init(gen);
         target_type target = init.template initialize<target_type>();
         checker_type checker = init.template initialize<checker_type>();
         for(size_type i = 0; i < Q; i++) {
-          Query::check(gen, target, checker);
+          query.check(gen, target, checker);
         }
       }
       catch(const fail_at& f) {

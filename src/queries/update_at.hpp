@@ -33,7 +33,7 @@ namespace ds {
   public: 
 
     template<class Gen, class Target, class Checker>
-    static void check(Gen& gen, Target& target, Checker& checker) {
+    void check(Gen& gen, Target& target, Checker& checker) {
 
       if(target.size() != checker.size()) {
         std::stringstream ss;
