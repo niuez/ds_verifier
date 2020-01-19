@@ -1,5 +1,5 @@
-#ifndef UPDATE_AT_HPP
-#define UPDATE_AT_HPP
+#ifndef MODIFY_AT_HPP
+#define MODIFY_AT_HPP
 
 #include <utility>
 #include <random>
@@ -11,14 +11,14 @@
 namespace ds {
 
   template<class T>
-  class update_at {
+  class modify_at {
   private:
     same_size<T> size_checker;
   public:
     
     static json11::Json json() {
       return json11::Json::object({
-          { "name", "update_at"  }
+          { "name", "modify_at"  }
           });
     }
 
@@ -28,14 +28,14 @@ namespace ds {
     using size_type = std::size_t;
     using value_type = T;
 
-    struct update_at_arg {
+    struct modify_at_arg {
       size_type idx;
-      value_type new_value;
+      value_type modify_value;
     };
 
-    using arg_type = update_at_arg;
+    using arg_type = modify_at_arg;
     using result_type = int;
-    using query_type = update_at<value_type>;
+    using query_type = modify_at<value_type>;
 
   public: 
 
@@ -45,8 +45,8 @@ namespace ds {
 
       const size_type idx = std::uniform_int_distribution<size_type>(0, target.size())(gen);
       const value_type new_value = value_type::generate(gen);
-      target.template query<query_type>(update_at_arg { idx, new_value });
-      checker.template query<query_type>(update_at_arg { idx, new_value });
+      target.template query<query_type>(modify_at_arg { idx, new_value });
+      checker.template query<query_type>(modify_at_arg { idx, new_value });
     }
   };
 }

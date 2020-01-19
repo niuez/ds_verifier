@@ -6,6 +6,7 @@
 #include <sstream>
 #include <verify_status.hpp>
 #include <queries/same_size.hpp>
+#include <json11/json11.h>
 
 namespace ds {
 
@@ -15,7 +16,11 @@ namespace ds {
     same_size<T> size_checker;
   public:
     
-    static constexpr const char* name() { return "access at"; }
+    static json11::Json json() {
+      return json11::Json::object({
+          { "name", "access_at"  }
+          });
+    }
 
   public:
 
@@ -39,7 +44,7 @@ namespace ds {
       if(tres != cres) {
         std::stringstream ss;
         ss << "[access_at] target results " << tres << " but checker results" << cres;
-        throw fail_at(query_type::name(), ss.str());
+        throw fail_at("access_at", ss.str());
       }
     }
   };

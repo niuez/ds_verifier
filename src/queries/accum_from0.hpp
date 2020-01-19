@@ -15,7 +15,11 @@ namespace ds {
     same_size<T> size_checker;
   public:
     
-    static constexpr const char* name() { return "accumlation from 0 index"; }
+    static json11::Json json() {
+      return json11::Json::object({
+          { "name", "accum_from0"  }
+          });
+    }
 
   public:
 
@@ -39,7 +43,7 @@ namespace ds {
       if(tres != cres) {
         std::stringstream ss;
         ss << "target results " << tres << " but checker results" << cres;
-        throw fail_at(query_type::name(), ss.str());
+        throw fail_at("accum_from0", ss.str());
       }
     }
   };
