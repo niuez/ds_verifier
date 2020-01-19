@@ -1,7 +1,7 @@
 #include <verifier.hpp>
 #include <init_methods/random_init_vector.hpp>
 #include <queries/accum_from0.hpp>
-#include <queries/random_choise.hpp>
+#include <queries/random_select.hpp>
 #include <array_wrapper/vector.hpp>
 #include <array_wrapper/segment_tree.hpp>
 #include <data/modint.hpp>
@@ -46,7 +46,7 @@ VERIFY_START() {
       std::mt19937,
       ds::random_init_vector<composite, 500>,
       500,
-      ds::random_choise<
+      ds::random_select<
         ds::accum_from0<composite>,
         ds::update_at<composite>
         >
