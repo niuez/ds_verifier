@@ -2,7 +2,7 @@
   "accumlation_verify": {
     "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2020-01-19 17:02:20",
+    "timestamp": "2020-01-19 08:10:34"
     "status": "OK",
     "detail": [
       {
@@ -31,14 +31,14 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumulation",
-        "timestamp": "2020-01-19 08:02:20"
+        "timestamp": "2020-01-19 08:10:34"
       }
     ]
   },
   "fenwick_tree_verify": {
-    "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/fenwick_tree_verify",
+    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/fenwick_tree_verify",
     "source_path": "src/verify/fenwick_tree_verify.cpp",
-    "timestamp": "2020-01-19 17:02:21",
+    "timestamp": "2020-01-19 08:10:34",
     "status": "OK",
     "detail": [
       {
@@ -64,14 +64,14 @@
         "status": "verified",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_accum0_to_all",
-        "timestamp": "2020-01-19 08:02:21"
+        "timestamp": "2020-01-19 08:10:34"
       }
     ]
   },
   "segment_tree_verify": {
-    "execute_path": "/home/niuez/play/ds_verifier/build/src/verify/segment_tree_verify",
+    "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/segment_tree_verify",
     "source_path": "src/verify/segment_tree_verify.cpp",
-    "timestamp": "2020-01-19 17:02:21",
+    "timestamp": "2020-01-19 08:10:34",
     "status": "OK",
     "detail": [
       {
@@ -100,7 +100,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_accum",
-        "timestamp": "2020-01-19 08:02:21"
+        "timestamp": "2020-01-19 08:10:34"
       },
       {
         "checker": "std::vector",
@@ -136,7 +136,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_accum0_update",
-        "timestamp": "2020-01-19 08:02:21"
+        "timestamp": "2020-01-19 08:10:34"
       }
     ]
   }
