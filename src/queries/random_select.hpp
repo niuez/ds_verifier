@@ -6,11 +6,11 @@
 namespace ds {
 
   template<class Q, class... Qs>
-  class random_choise {
+  class random_select {
   public:
     using size_type = std::size_t;
     using query_type = Q;
-    using qs_type = random_choise<Qs...>;
+    using qs_type = random_select<Qs...>;
 
     const static size_type query_size = sizeof...(Qs) + 1;
 
@@ -25,7 +25,7 @@ namespace ds {
     }
 
     static std::string name() {
-      return std::string("random_choise from ") + name_rec();
+      return std::string("random_select from ") + name_rec();
     }
 
     template<class Gen, class Target, class Checker>
@@ -42,7 +42,7 @@ namespace ds {
   };
 
   template<class Q>
-  class random_choise<Q> {
+  class random_select<Q> {
   public:
     using size_type = std::size_t;
     using query_type = Q;
@@ -59,7 +59,7 @@ namespace ds {
     }
 
     static std::string name() {
-      return std::string("random_choise from ") + name_rec();
+      return std::string("random_select from ") + name_rec();
     }
 
     template<class Gen, class Target, class Checker>
