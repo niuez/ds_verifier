@@ -47,7 +47,7 @@ namespace ds {
       }
     };
 
-    template<class V> struct QueryFunc<update_at<value_type>, V> {
+    template<class V> struct QueryFunc<modify_at<value_type>, V> {
       typename modify_at<value_type>::result_type
       static query(ds_type& fen, const typename modify_at<value_type>::arg_type& arg) {
         fen.modify(arg.idx, arg.modify_value);

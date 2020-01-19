@@ -1,6 +1,7 @@
 #include <verifier.hpp>
 #include <queries/query_process.hpp>
 #include <queries/init/random_init_vector.hpp>
+#include <queries/init/init_once.hpp>
 #include <queries/accum_from0.hpp>
 #include <queries/accum_from0_all.hpp>
 #include <queries/random_select.hpp>
@@ -21,6 +22,22 @@ VERIFY_START() {
     >;
     std::mt19937 gen(1);
     VERIFY(fen_verify()(gen, "fenwick_tree_accum0_to_all"));
+  }
+  {
+    using fen_verify = ds::verifier<
+      ds::array_wrapper<fp, niu::fenwick_tree<fp, std::plus<fp>>>,
+      ds::array_wrapper<fp, std::vector<fp>>,
+      std::mt19937,
+      ds::init_once<
+        ds::random_init_vector<fp, 500>,
+        ds::query_process<500,
+          ds::accum_from0<fp>,
+          ds::modify_at<fp>
+        >
+      >
+    >;
+    std::mt19937 gen(1);
+    VERIFY(fen_verify()(gen, "fenwick_tree_accum0_modify_at"));
   }
 }
 VERIFY_END();
