@@ -1,5 +1,7 @@
 #include <verifier.hpp>
-#include <init_methods/random_init_vector.hpp>
+#include <queries/query_process.hpp>
+#include <queries/init/init_once.hpp>
+#include <queries/init/random_init_vector.hpp>
 #include <queries/accum_from0.hpp>
 #include <array_wrapper/vector.hpp>
 #include <array_wrapper/accumulation.hpp>
@@ -14,9 +16,10 @@ VERIFY_START() {
     ds::array_wrapper<i32, ds::accumulation<i32>>,
     ds::array_wrapper<i32, std::vector<i32>>,
     std::mt19937,
-    ds::random_init_vector<i32, 100>,
-    300,
-    ds::accum_from0<i32>
+    ds::init_once<
+      ds::random_init_vector<i32, 100>,
+      ds::query_process<100, ds::accum_from0<i32>>
+    >
     >;
 
   std::mt19937 gen(1);

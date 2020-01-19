@@ -1,5 +1,7 @@
 #include <verifier.hpp>
-#include <init_methods/random_init_vector.hpp>
+#include <queries/init/init_once.hpp>
+#include <queries/query_process.hpp>
+#include <queries/init/random_init_vector.hpp>
 #include <queries/accum_from0.hpp>
 #include <queries/random_select.hpp>
 #include <array_wrapper/vector.hpp>
@@ -18,10 +20,11 @@ VERIFY_START() {
       ds::array_wrapper<composite, niu::segment_tree<composite>>,
       ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
-      ds::random_init_vector<composite, 500>,
-      500,
-      ds::accum_from0<composite>
-        >;
+      ds::init_once<
+        ds::random_init_vector<composite, 500>,
+        ds::query_process<500, ds::accum_from0<composite>>
+      >
+    >;
 
     std::mt19937 gen(1);
     VERIFY(seg_verify()(gen, "segment_tree_accum"));
@@ -31,26 +34,16 @@ VERIFY_START() {
       ds::array_wrapper<composite, niu::segment_tree<composite>>,
       ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
-      ds::random_init_vector<composite, 500>,
-      500,
-      ds::update_at<composite>
-        >;
-
-    std::mt19937 gen(1);
-    VERIFY(seg_verify()(gen, "segment_tree_update_at"));
-  }
-  {
-    using seg_verify = ds::verifier<
-      ds::array_wrapper<composite, niu::segment_tree<composite>>,
-      ds::array_wrapper<composite, std::vector<composite>>,
-      std::mt19937,
-      ds::random_init_vector<composite, 500>,
-      500,
-      ds::random_select<
-        ds::accum_from0<composite>,
-        ds::update_at<composite>
+      ds::init_once<
+        ds::random_init_vector<composite, 500>,
+        ds::query_process<500,
+          ds::random_select<
+            ds::accum_from0<composite>,
+            ds::update_at<composite>
+          >
         >
-      >;
+      >
+    >;
 
     std::mt19937 gen(1);
     VERIFY(seg_verify()(gen, "segment_tree_accum0_update"));

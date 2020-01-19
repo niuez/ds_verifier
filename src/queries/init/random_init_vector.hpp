@@ -1,5 +1,5 @@
-#ifndef INIT_METHODS_RANDOM_INIT_VECTOR_HPP
-#define INIT_METHODS_RANDOM_INIT_VECTOR_HPP
+#ifndef INIT_RANDOM_INIT_VECTOR_HPP
+#define INIT_RANDOM_INIT_VECTOR_HPP
 
 #include <vector>
 #include <string>
@@ -12,26 +12,20 @@ namespace ds {
     using size_type = std::size_t;
     using value_type = T;
 
-  private:
-
-    std::vector<value_type> init;
-
   public:
 
     static std::string name() { return std::string("random vector of ") + std::string(T::name()); }
 
   public:
 
-    template<class Gen>
-    random_init_vector(Gen& gen) : init(N) {
+    template<class Gen, class Target, class Checker>
+    void check(Gen& gen, Target& target, Checker& checker) const {
+      std::vector<value_type> init(N);
       for(size_type i = 0;i < N;i++) {
         init[i] = value_type::generate(gen);
       }
-    }
-
-    template<class Target>
-    Target initialize() const {
-      return Target(init);
+      target = Target(init);
+      checker = Checker(init);
     }
   };
 }

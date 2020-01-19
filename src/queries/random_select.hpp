@@ -25,7 +25,7 @@ namespace ds {
     }
 
     static std::string name() {
-      return std::string("random_select from ") + name_rec();
+      return std::string("random_select { ") + name_rec() + std::string("} ");
     }
 
     template<class Gen, class Target, class Checker>
