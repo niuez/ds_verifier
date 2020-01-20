@@ -1,5 +1,5 @@
-#ifndef ACCUMS_FROM0_HPP
-#define ACCUMS_FROM0_HPP
+#ifndef FOLDL_FROM0_HPP
+#define FOLDL_FROM0_HPP
 
 #include <utility>
 #include <random>
@@ -10,14 +10,14 @@
 namespace ds {
 
   template<class T>
-  class accum_from0 {
+  class foldl_from0 {
   private:
     same_size<T> size_checker;
   public:
     
     static json11::Json json() {
       return json11::Json::object({
-          { "name", "accum_from0"  }
+          { "name", "foldl_from0"  }
           });
     }
 
@@ -28,7 +28,7 @@ namespace ds {
 
     using arg_type = size_type;
     using result_type = value_type;
-    using query_type = accum_from0<value_type>;
+    using query_type = foldl_from0<value_type>;
 
   public: 
 
@@ -43,7 +43,7 @@ namespace ds {
       if(tres != cres) {
         std::stringstream ss;
         ss << "target results " << tres << " but checker results" << cres;
-        throw fail_at("accum_from0", ss.str());
+        throw fail_at("foldl_from0", ss.str());
       }
     }
   };

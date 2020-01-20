@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <array_wrapper.hpp>
-#include <queries/accum_from0.hpp>
+#include <queries/foldl_from0.hpp>
 #include <queries/access_at.hpp>
 #include <queries/update_at.hpp>
 #include <data_structures/segment_tree.hpp>
@@ -39,9 +39,9 @@ namespace ds {
 
     template<class Query, class = void> struct QueryFunc {};
 
-    template<class V> struct QueryFunc<accum_from0<value_type>, V> {
-      typename accum_from0<value_type>::result_type
-      static query(ds_type& seg, const typename accum_from0<value_type>::arg_type& r) {
+    template<class V> struct QueryFunc<foldl_from0<value_type>, V> {
+      typename foldl_from0<value_type>::result_type
+      static query(ds_type& seg, const typename foldl_from0<value_type>::arg_type& r) {
         return seg.sum(0, r);
       }
     };

@@ -4,7 +4,7 @@
 #include <vector>
 #include <data_structures/accumulation.hpp>
 #include <array_wrapper.hpp>
-#include <queries/accum_from0.hpp>
+#include <queries/foldl_from0.hpp>
 
 namespace ds {
 
@@ -34,10 +34,10 @@ namespace ds {
 
     template<class Query, class = void> struct QueryFunc {};
 
-    template<class V> struct QueryFunc<accum_from0<value_type>, V> {
-      typename accum_from0<value_type>::result_type
-      static query(ds_type& accum, const typename accum_from0<value_type>::arg_type& r) {
-        return accum.accum_from0(r);
+    template<class V> struct QueryFunc<foldl_from0<value_type>, V> {
+      typename foldl_from0<value_type>::result_type
+      static query(ds_type& accum, const typename foldl_from0<value_type>::arg_type& r) {
+        return accum.foldl_from0(r);
       }
     };
 
