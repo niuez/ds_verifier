@@ -2,7 +2,7 @@
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2020-01-19 08:38:43",
+    "timestamp": "2020-01-20 15:25:45",
     "status": "OK",
     "detail": [
       {
@@ -21,7 +21,7 @@
             "name": "query_process",
             "process": [
               {
-                "name": "accum_from0"
+                "name": "foldl_from0"
               }
             ],
             "query_count": 100
@@ -30,15 +30,15 @@
         "query_count": 0,
         "status": "verified",
         "target": "accumulation",
-        "test_case": "accumulation",
-        "timestamp": "2020-01-19 08:38:43"
+        "test_case": "accumlation_foldl0",
+        "timestamp": "2020-01-20 15:25:45"
       }
     ]
   },
   "fenwick_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/fenwick_tree_verify",
     "source_path": "src/verify/fenwick_tree_verify.cpp",
-    "timestamp": "2020-01-19 08:38:43",
+    "timestamp": "2020-01-20 15:25:46",
     "status": "OK",
     "detail": [
       {
@@ -55,7 +55,7 @@
               "type": "modint<998244353>"
             },
             {
-              "name": "accum_from0_all"
+              "name": "foldl_from0_all"
             }
           ],
           "query_count": 100
@@ -63,8 +63,8 @@
         "query_count": 0,
         "status": "verified",
         "target": "fenwick_tree",
-        "test_case": "fenwick_tree_accum0_to_all",
-        "timestamp": "2020-01-19 08:38:43"
+        "test_case": "fenwick_tree_foldl0_to_all",
+        "timestamp": "2020-01-20 15:25:46"
       },
       {
         "checker": "std::vector",
@@ -82,7 +82,7 @@
             "name": "query_process",
             "process": [
               {
-                "name": "accum_from0"
+                "name": "foldl_from0"
               },
               {
                 "name": "modify_at"
@@ -94,15 +94,49 @@
         "query_count": 0,
         "status": "verified",
         "target": "fenwick_tree",
-        "test_case": "fenwick_tree_accum0_modify_at",
-        "timestamp": "2020-01-19 08:38:43"
+        "test_case": "fenwick_tree_foldl0_modify_at",
+        "timestamp": "2020-01-20 15:25:46"
+      },
+      {
+        "checker": "std::vector",
+        "fail_at": {
+          "fail_info": "target results (914160099 [mod998244353]) but checker results(0 [mod998244353])",
+          "fail_query": "foldl_from0"
+        },
+        "gen": "std::mt19937",
+        "init_method": "",
+        "query": {
+          "init_method": {
+            "name": "random_init_vector",
+            "size": 500,
+            "type": "modint<998244353>"
+          },
+          "name": "init_once",
+          "query": {
+            "name": "query_process",
+            "process": [
+              {
+                "name": "foldl_range"
+              },
+              {
+                "name": "modify_at"
+              }
+            ],
+            "query_count": 500
+          }
+        },
+        "query_count": 0,
+        "status": "failure",
+        "target": "fenwick_tree",
+        "test_case": "fenwick_tree_foldl_range_modify_at",
+        "timestamp": "2020-01-20 15:25:46"
       }
     ]
   },
   "segment_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/segment_tree_verify",
     "source_path": "src/verify/segment_tree_verify.cpp",
-    "timestamp": "2020-01-19 08:38:43",
+    "timestamp": "2020-01-20 15:25:46",
     "status": "OK",
     "detail": [
       {
@@ -121,7 +155,7 @@
             "name": "query_process",
             "process": [
               {
-                "name": "accum_from0"
+                "name": "foldl_from0"
               }
             ],
             "query_count": 500
@@ -130,8 +164,8 @@
         "query_count": 0,
         "status": "verified",
         "target": "segment_tree",
-        "test_case": "segment_tree_accum",
-        "timestamp": "2020-01-19 08:38:43"
+        "test_case": "segment_tree_foldl0",
+        "timestamp": "2020-01-20 15:25:46"
       },
       {
         "checker": "std::vector",
@@ -152,7 +186,7 @@
                 "name": "random_select",
                 "queries": [
                   {
-                    "name": "accum_from0"
+                    "name": "foldl_from0"
                   },
                   {
                     "name": "update_at"
@@ -166,8 +200,8 @@
         "query_count": 0,
         "status": "verified",
         "target": "segment_tree",
-        "test_case": "segment_tree_accum0_update",
-        "timestamp": "2020-01-19 08:38:43"
+        "test_case": "segment_tree_foldl0_update_at",
+        "timestamp": "2020-01-20 15:25:46"
       }
     ]
   }
