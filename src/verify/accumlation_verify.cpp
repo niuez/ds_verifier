@@ -23,7 +23,7 @@ VERIFY_START() {
     >;
 
   std::mt19937 gen(1);
-  VERIFY(foldl_verify()(gen, "accumulation"));
+  VERIFY(foldl_verify()(gen, "accumlation_foldl0"));
 }
 VERIFY_END();
 

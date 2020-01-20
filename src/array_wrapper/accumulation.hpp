@@ -37,7 +37,7 @@ namespace ds {
     template<class V> struct QueryFunc<foldl_from0<value_type>, V> {
       typename foldl_from0<value_type>::result_type
       static query(ds_type& accum, const typename foldl_from0<value_type>::arg_type& r) {
-        return accum.foldl_from0(r);
+        return accum.accum_from0(r);
       }
     };
 

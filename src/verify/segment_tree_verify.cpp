@@ -27,7 +27,7 @@ VERIFY_START() {
     >;
 
     std::mt19937 gen(1);
-    VERIFY(seg_verify()(gen, "segment_tree_accum"));
+    VERIFY(seg_verify()(gen, "segment_tree_foldl0"));
   }
   {
     using seg_verify = ds::verifier<
@@ -46,7 +46,7 @@ VERIFY_START() {
     >;
 
     std::mt19937 gen(1);
-    VERIFY(seg_verify()(gen, "segment_tree_accum0_update"));
+    VERIFY(seg_verify()(gen, "segment_tree_foldl0_update_at"));
   }
 }
 VERIFY_END();

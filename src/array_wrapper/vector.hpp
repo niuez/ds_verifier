@@ -4,7 +4,8 @@
 #include <vector>
 #include <string>
 #include <array_wrapper.hpp>
-#include <queries/accum_from0.hpp>
+#include <queries/foldl_from0.hpp>
+#include <queries/foldl_range.hpp>
 #include <queries/access_at.hpp>
 #include <queries/update_at.hpp>
 #include <queries/modify_at.hpp>
@@ -39,11 +40,24 @@ namespace ds {
 
     template<class Query, class = void> struct QueryFunc {};
 
-    template<class V> struct QueryFunc<accum_from0<value_type>, V> {
-      typename accum_from0<value_type>::result_type
-      static query(ds_type& arr, const typename accum_from0<value_type>::arg_type& r) {
+    template<class V> struct QueryFunc<foldl_from0<value_type>, V> {
+      typename foldl_from0<value_type>::result_type
+      static query(ds_type& arr, const typename foldl_from0<value_type>::arg_type& r) {
         T ans = T();
         for(size_type i = 0;i < r;i++) {
+          ans = ans + arr[i];
+        }
+        return ans;
+      }
+    };
+
+    template<class V> struct QueryFunc<foldl_range<value_type>, V> {
+      typename foldl_range<value_type>::result_type
+      static query(ds_type& arr, const typename foldl_range<value_type>::arg_type& range) {
+        T ans = T();
+        size_type l = range.l;
+        size_type r = range.r;
+        for(size_type i = l;i < r;i++) {
           ans = ans + arr[i];
         }
         return ans;
@@ -71,6 +85,7 @@ namespace ds {
         arr[arg.idx] = arr[arg.idx] + arg.modify_value;
         return 0;
       }
+
     };
 
     template<class Query>

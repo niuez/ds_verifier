@@ -5,6 +5,7 @@
 #include <string>
 #include <array_wrapper.hpp>
 #include <queries/foldl_from0.hpp>
+#include <queries/foldl_range.hpp>
 #include <queries/access_at.hpp>
 #include <queries/update_at.hpp>
 #include <queries/modify_at.hpp>
@@ -44,6 +45,13 @@ namespace ds {
       typename foldl_from0<value_type>::result_type
       static query(ds_type& fen, const typename foldl_from0<value_type>::arg_type& r) {
         return fen.sum(r);
+      }
+    };
+
+    template<class V> struct QueryFunc<foldl_range<value_type>, V> {
+      typename foldl_range<value_type>::result_type
+      static query(ds_type& fen, const typename foldl_range<value_type>::arg_type& range) {
+        return fen.sum(range.r) - fen.sum(range.l);
       }
     };
 
