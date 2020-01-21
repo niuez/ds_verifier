@@ -17,7 +17,6 @@ def execute(exe: Path, source: str):
                     "detail": json.loads(str(proc.stdout.decode('utf8')))
                 })
     except Exception as e:
-        # print("verify except: %s" % verify_name)
         print(e)
         return (verify_name, {
                     "execute_path": str(exe),
