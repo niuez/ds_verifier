@@ -28,7 +28,9 @@
       <dd>{{ detail.timestamp | e }}</dd>
       <dt><b>Status</b></dt>
       <dd>{{ detail.status | e }}</dd>
-      {% if detail.stauts == "failure" %}
+      {% if detail.status == "failure" %}
+      <dt><b>Fail Query</b></dt>
+      <dd>{{ detail.fail_info | e }}</dd>
       <dt><b>Fail Info</b></dt>
       <dd>{{ detail.fail_info | e }}</dd>
       {% endif %}
