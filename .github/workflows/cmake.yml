@@ -5,6 +5,9 @@ on:
     branches: master
     paths:
     - 'src/**'
+    - 'generate.py'
+    - 'verify.py'
+    - 'templates/**'
 jobs:
   build:
 
