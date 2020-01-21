@@ -20,20 +20,20 @@ VERIFY_START() {
       ds::array_wrapper<composite, niu::segment_tree<composite>>,
       ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
+      1,
       ds::init_once<
         ds::random_init_vector<composite, 500>,
         ds::query_process<500, ds::foldl_from0<composite>>
       >
     >;
-
-    std::mt19937 gen(1);
-    VERIFY(seg_verify()(gen, "segment_tree_foldl0"));
+    VERIFY(seg_verify()("segment_tree_foldl0"));
   }
   {
     using seg_verify = ds::verifier<
       ds::array_wrapper<composite, niu::segment_tree<composite>>,
       ds::array_wrapper<composite, std::vector<composite>>,
       std::mt19937,
+      1,
       ds::init_once<
         ds::random_init_vector<composite, 500>,
         ds::query_process<500,
@@ -45,8 +45,7 @@ VERIFY_START() {
       >
     >;
 
-    std::mt19937 gen(1);
-    VERIFY(seg_verify()(gen, "segment_tree_foldl0_update_at"));
+    VERIFY(seg_verify()("segment_tree_foldl0_update_at"));
   }
 }
 VERIFY_END();

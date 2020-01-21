@@ -16,14 +16,14 @@ VERIFY_START() {
     ds::array_wrapper<i32, ds::accumulation<i32>>,
     ds::array_wrapper<i32, std::vector<i32>>,
     std::mt19937,
+    1,
     ds::init_once<
       ds::random_init_vector<i32, 100>,
       ds::query_process<100, ds::foldl_from0<i32>>
     >
     >;
 
-  std::mt19937 gen(1);
-  VERIFY(foldl_verify()(gen, "accumlation_foldl0"));
+  VERIFY(foldl_verify()("accumlation_foldl0"));
 }
 VERIFY_END();
 

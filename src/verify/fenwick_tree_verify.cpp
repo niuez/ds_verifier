@@ -18,16 +18,17 @@ VERIFY_START() {
       ds::array_wrapper<fp, niu::fenwick_tree<fp, std::plus<fp>>>,
       ds::array_wrapper<fp, std::vector<fp>>,
       std::mt19937,
+      1,
       ds::query_process<100, ds::random_init_vector<fp, 500>, ds::foldl_from0_all<fp>>
     >;
-    std::mt19937 gen(1);
-    VERIFY(fen_verify()(gen, "fenwick_tree_foldl0_to_all"));
+    VERIFY(fen_verify()("fenwick_tree_foldl0_to_all"));
   }
   {
     using fen_verify = ds::verifier<
       ds::array_wrapper<fp, niu::fenwick_tree<fp, std::plus<fp>>>,
       ds::array_wrapper<fp, std::vector<fp>>,
       std::mt19937,
+      1,
       ds::init_once<
         ds::random_init_vector<fp, 500>,
         ds::query_process<500,
@@ -36,14 +37,14 @@ VERIFY_START() {
         >
       >
     >;
-    std::mt19937 gen(1);
-    VERIFY(fen_verify()(gen, "fenwick_tree_foldl0_modify_at"));
+    VERIFY(fen_verify()("fenwick_tree_foldl0_modify_at"));
   }
   {
     using fen_verify = ds::verifier<
       ds::array_wrapper<fp, niu::fenwick_tree<fp, std::plus<fp>>>,
       ds::array_wrapper<fp, std::vector<fp>>,
       std::mt19937,
+      1,
       ds::init_once<
         ds::random_init_vector<fp, 500>,
         ds::query_process<500,
@@ -52,8 +53,7 @@ VERIFY_START() {
         >
       >
     >;
-    std::mt19937 gen(1);
-    VERIFY(fen_verify()(gen, "fenwick_tree_foldl_range_modify_at"));
+    VERIFY(fen_verify()("fenwick_tree_foldl_range_modify_at"));
   }
 }
 VERIFY_END();

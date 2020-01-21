@@ -23,6 +23,7 @@ namespace ds {
     class Target,
     class Checker,
     class Gen,
+    const std::size_t Seed,
     class Query
   >
   class verifier {
@@ -32,12 +33,13 @@ namespace ds {
     using size_type = std::size_t;
     using target_type = Target;
     using checker_type = Checker;
-    using status_type = verify_status<Target, Checker, Gen, Query>;
+    using status_type = verify_status<Target, Checker, Gen, Seed, Query>;
     using query_type = Query;
 
     verifier() {}
 
-    status_type operator()(Gen& gen, const std::string& test_case) const {
+    status_type operator()(const std::string& test_case) const {
+      Gen gen(Seed);
       try {
         query_type query;
         target_type target;

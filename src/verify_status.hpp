@@ -42,6 +42,7 @@ namespace ds {
     class Target,
     class Checker,
     class Gen,
+    const std::size_t Seed,
     class Query
   >
   struct verify_status {
@@ -74,6 +75,7 @@ namespace ds {
       os << "target: " << Target::name() << std::endl;
       os << "checker: " << Checker::name() << std::endl;
       os << "gen: " << gen_name<Gen>() << std::endl;
+      os << "seed: " << Seed << std::endl;
       os << "init_method: " << "" << std::endl;
       os << "query count: " << "" << std::endl;
       os << "stauts: " << (verified ? "verified" : "failure") << std::endl;
@@ -91,6 +93,7 @@ namespace ds {
             { "target", Target::name() },
             { "checker", Checker::name() },
             { "gen", gen_name<Gen>() },
+            { "seed", (int)(Seed) },
             { "init_method", "" },
             { "query_count", 0 },
             { "status", (verified ? "verified" : "failure") },
