@@ -2,7 +2,7 @@
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2020-01-20 15:25:45",
+    "timestamp": "2020-01-21 00:06:52",
     "status": "OK",
     "detail": [
       {
@@ -28,17 +28,18 @@
           }
         },
         "query_count": 0,
+        "seed": 1,
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumlation_foldl0",
-        "timestamp": "2020-01-20 15:25:45"
+        "timestamp": "2020-01-21 00:06:52"
       }
     ]
   },
   "fenwick_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/fenwick_tree_verify",
     "source_path": "src/verify/fenwick_tree_verify.cpp",
-    "timestamp": "2020-01-20 15:25:46",
+    "timestamp": "2020-01-21 00:06:52",
     "status": "OK",
     "detail": [
       {
@@ -61,10 +62,11 @@
           "query_count": 100
         },
         "query_count": 0,
+        "seed": 1,
         "status": "verified",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_foldl0_to_all",
-        "timestamp": "2020-01-20 15:25:46"
+        "timestamp": "2020-01-21 00:06:52"
       },
       {
         "checker": "std::vector",
@@ -92,15 +94,16 @@
           }
         },
         "query_count": 0,
+        "seed": 1,
         "status": "verified",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_foldl0_modify_at",
-        "timestamp": "2020-01-20 15:25:46"
+        "timestamp": "2020-01-21 00:06:52"
       },
       {
         "checker": "std::vector",
         "fail_at": {
-          "fail_info": "target results (914160099 [mod998244353]) but checker results(0 [mod998244353])",
+          "fail_info": "target results (159282049 [mod998244353]) but checker results(0 [mod998244353])",
           "fail_query": "foldl_from0"
         },
         "gen": "std::mt19937",
@@ -126,17 +129,18 @@
           }
         },
         "query_count": 0,
+        "seed": 1,
         "status": "failure",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_foldl_range_modify_at",
-        "timestamp": "2020-01-20 15:25:46"
+        "timestamp": "2020-01-21 00:06:52"
       }
     ]
   },
   "segment_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/segment_tree_verify",
     "source_path": "src/verify/segment_tree_verify.cpp",
-    "timestamp": "2020-01-20 15:25:46",
+    "timestamp": "2020-01-21 00:06:52",
     "status": "OK",
     "detail": [
       {
@@ -162,10 +166,11 @@
           }
         },
         "query_count": 0,
+        "seed": 1,
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_foldl0",
-        "timestamp": "2020-01-20 15:25:46"
+        "timestamp": "2020-01-21 00:06:52"
       },
       {
         "checker": "std::vector",
@@ -198,10 +203,11 @@
           }
         },
         "query_count": 0,
+        "seed": 1,
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_foldl0_update_at",
-        "timestamp": "2020-01-20 15:25:46"
+        "timestamp": "2020-01-21 00:06:52"
       }
     ]
   }
