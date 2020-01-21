@@ -2,7 +2,7 @@
   "accumlation_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/accumlation_verify",
     "source_path": "src/verify/accumlation_verify.cpp",
-    "timestamp": "2020-01-21 00:06:52",
+    "timestamp": "2020-01-21 00:29:34",
     "status": "OK",
     "detail": [
       {
@@ -32,14 +32,14 @@
         "status": "verified",
         "target": "accumulation",
         "test_case": "accumlation_foldl0",
-        "timestamp": "2020-01-21 00:06:52"
+        "timestamp": "2020-01-21 00:29:34"
       }
     ]
   },
   "fenwick_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/fenwick_tree_verify",
     "source_path": "src/verify/fenwick_tree_verify.cpp",
-    "timestamp": "2020-01-21 00:06:52",
+    "timestamp": "2020-01-21 00:29:34",
     "status": "OK",
     "detail": [
       {
@@ -66,7 +66,7 @@
         "status": "verified",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_foldl0_to_all",
-        "timestamp": "2020-01-21 00:06:52"
+        "timestamp": "2020-01-21 00:29:34"
       },
       {
         "checker": "std::vector",
@@ -98,7 +98,7 @@
         "status": "verified",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_foldl0_modify_at",
-        "timestamp": "2020-01-21 00:06:52"
+        "timestamp": "2020-01-21 00:29:34"
       },
       {
         "checker": "std::vector",
@@ -133,14 +133,14 @@
         "status": "failure",
         "target": "fenwick_tree",
         "test_case": "fenwick_tree_foldl_range_modify_at",
-        "timestamp": "2020-01-21 00:06:52"
+        "timestamp": "2020-01-21 00:29:34"
       }
     ]
   },
   "segment_tree_verify": {
     "execute_path": "/home/runner/work/ds_verifier/ds_verifier/build/src/verify/segment_tree_verify",
     "source_path": "src/verify/segment_tree_verify.cpp",
-    "timestamp": "2020-01-21 00:06:52",
+    "timestamp": "2020-01-21 00:29:34",
     "status": "OK",
     "detail": [
       {
@@ -170,7 +170,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_foldl0",
-        "timestamp": "2020-01-21 00:06:52"
+        "timestamp": "2020-01-21 00:29:34"
       },
       {
         "checker": "std::vector",
@@ -207,7 +207,7 @@
         "status": "verified",
         "target": "segment_tree",
         "test_case": "segment_tree_foldl0_update_at",
-        "timestamp": "2020-01-21 00:06:52"
+        "timestamp": "2020-01-21 00:29:34"
       }
     ]
   }
