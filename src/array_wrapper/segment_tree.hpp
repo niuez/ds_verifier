@@ -73,7 +73,7 @@ namespace ds {
     template<class V> struct QueryFunc<modify_at<value_type>, V> {
       typename modify_at<value_type>::result_type
       static query(ds_type& seg, const typename modify_at<value_type>::arg_type& arg) {
-        seg.update(arg.idx, seg.at(arg.idx) + arg.new_value);
+        seg.update(arg.idx, seg.at(arg.idx) + arg.modify_value);
         return 0;
       }
     };
