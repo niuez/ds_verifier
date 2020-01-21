@@ -8,6 +8,7 @@
 #include <queries/foldl_range.hpp>
 #include <queries/access_at.hpp>
 #include <queries/update_at.hpp>
+#include <queries/modify_at.hpp>
 #include <data_structures/segment_tree.hpp>
 
 namespace ds {
@@ -65,6 +66,14 @@ namespace ds {
       typename update_at<value_type>::result_type
       static query(ds_type& seg, const typename update_at<value_type>::arg_type& arg) {
         seg.update(arg.idx, arg.new_value);
+        return 0;
+      }
+    };
+
+    template<class V> struct QueryFunc<modify_at<value_type>, V> {
+      typename modify_at<value_type>::result_type
+      static query(ds_type& seg, const typename modify_at<value_type>::arg_type& arg) {
+        seg.update(arg.idx, seg.at(arg.idx) + arg.new_value);
         return 0;
       }
     };
