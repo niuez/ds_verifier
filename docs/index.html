@@ -16,7 +16,7 @@
   <ul>
   
   
-  <li><h3 style="color:#5cb85c;">accumulation</h3></li>
+  <li><h3 style="color:#5cb85c;">accumlation_foldl0</h3></li>
   
     <dl>
       <dt><b>Verify Code</b></dt>
@@ -33,7 +33,7 @@
     &#34;name&#34;: &#34;query_process&#34;,
     &#34;process&#34;: [
       {
-        &#34;name&#34;: &#34;accum_from0&#34;
+        &#34;name&#34;: &#34;foldl_from0&#34;
       }
     ],
     &#34;query_count&#34;: 100
@@ -43,8 +43,10 @@
       <dd>std::vector</dd>
       <dt><b>Gen</b></dt>
       <dd>std::mt19937<dd>
+      <dt><b>Seed</b></dt>
+      <dd>1<dd>
       <dt><b>TimeStamp</b></dt>
-      <dd>2020-01-19 08:38:43</dd>
+      <dd>2020-01-21 00:06:52</dd>
       <dt><b>Status</b></dt>
       <dd>verified</dd>
       
@@ -58,7 +60,7 @@
   <ul>
   
   
-  <li><h3 style="color:#5cb85c;">fenwick_tree_accum0_modify_at</h3></li>
+  <li><h3 style="color:#5cb85c;">fenwick_tree_foldl0_modify_at</h3></li>
   
     <dl>
       <dt><b>Verify Code</b></dt>
@@ -75,7 +77,7 @@
     &#34;name&#34;: &#34;query_process&#34;,
     &#34;process&#34;: [
       {
-        &#34;name&#34;: &#34;accum_from0&#34;
+        &#34;name&#34;: &#34;foldl_from0&#34;
       },
       {
         &#34;name&#34;: &#34;modify_at&#34;
@@ -88,15 +90,17 @@
       <dd>std::vector</dd>
       <dt><b>Gen</b></dt>
       <dd>std::mt19937<dd>
+      <dt><b>Seed</b></dt>
+      <dd>1<dd>
       <dt><b>TimeStamp</b></dt>
-      <dd>2020-01-19 08:38:43</dd>
+      <dd>2020-01-21 00:06:52</dd>
       <dt><b>Status</b></dt>
       <dd>verified</dd>
       
     </dl>
   
   
-  <li><h3 style="color:#5cb85c;">fenwick_tree_accum0_to_all</h3></li>
+  <li><h3 style="color:#5cb85c;">fenwick_tree_foldl0_to_all</h3></li>
   
     <dl>
       <dt><b>Verify Code</b></dt>
@@ -111,7 +115,7 @@
       &#34;type&#34;: &#34;modint&lt;998244353&gt;&#34;
     },
     {
-      &#34;name&#34;: &#34;accum_from0_all&#34;
+      &#34;name&#34;: &#34;foldl_from0_all&#34;
     }
   ],
   &#34;query_count&#34;: 100
@@ -120,10 +124,52 @@
       <dd>std::vector</dd>
       <dt><b>Gen</b></dt>
       <dd>std::mt19937<dd>
+      <dt><b>Seed</b></dt>
+      <dd>1<dd>
       <dt><b>TimeStamp</b></dt>
-      <dd>2020-01-19 08:38:43</dd>
+      <dd>2020-01-21 00:06:52</dd>
       <dt><b>Status</b></dt>
       <dd>verified</dd>
+      
+    </dl>
+  
+  
+  <li><h3 style="color:#f0ad4e;">fenwick_tree_foldl_range_modify_at</h3></li>
+  
+    <dl>
+      <dt><b>Verify Code</b></dt>
+      <dd>src/verify/fenwick_tree_verify.cpp</dd>
+      <dt><b>Query</b></dt>
+      <dd><pre>{
+  &#34;init_method&#34;: {
+    &#34;name&#34;: &#34;random_init_vector&#34;,
+    &#34;size&#34;: 500,
+    &#34;type&#34;: &#34;modint&lt;998244353&gt;&#34;
+  },
+  &#34;name&#34;: &#34;init_once&#34;,
+  &#34;query&#34;: {
+    &#34;name&#34;: &#34;query_process&#34;,
+    &#34;process&#34;: [
+      {
+        &#34;name&#34;: &#34;foldl_range&#34;
+      },
+      {
+        &#34;name&#34;: &#34;modify_at&#34;
+      }
+    ],
+    &#34;query_count&#34;: 500
+  }
+}</pre></dd>
+      <dt><b>Checker</b></dt>
+      <dd>std::vector</dd>
+      <dt><b>Gen</b></dt>
+      <dd>std::mt19937<dd>
+      <dt><b>Seed</b></dt>
+      <dd>1<dd>
+      <dt><b>TimeStamp</b></dt>
+      <dd>2020-01-21 00:06:52</dd>
+      <dt><b>Status</b></dt>
+      <dd>failure</dd>
       
     </dl>
   
@@ -135,7 +181,7 @@
   <ul>
   
   
-  <li><h3 style="color:#5cb85c;">segment_tree_accum</h3></li>
+  <li><h3 style="color:#5cb85c;">segment_tree_foldl0</h3></li>
   
     <dl>
       <dt><b>Verify Code</b></dt>
@@ -152,7 +198,7 @@
     &#34;name&#34;: &#34;query_process&#34;,
     &#34;process&#34;: [
       {
-        &#34;name&#34;: &#34;accum_from0&#34;
+        &#34;name&#34;: &#34;foldl_from0&#34;
       }
     ],
     &#34;query_count&#34;: 500
@@ -162,15 +208,17 @@
       <dd>std::vector</dd>
       <dt><b>Gen</b></dt>
       <dd>std::mt19937<dd>
+      <dt><b>Seed</b></dt>
+      <dd>1<dd>
       <dt><b>TimeStamp</b></dt>
-      <dd>2020-01-19 08:38:43</dd>
+      <dd>2020-01-21 00:06:52</dd>
       <dt><b>Status</b></dt>
       <dd>verified</dd>
       
     </dl>
   
   
-  <li><h3 style="color:#5cb85c;">segment_tree_accum0_update</h3></li>
+  <li><h3 style="color:#5cb85c;">segment_tree_foldl0_update_at</h3></li>
   
     <dl>
       <dt><b>Verify Code</b></dt>
@@ -190,7 +238,7 @@
         &#34;name&#34;: &#34;random_select&#34;,
         &#34;queries&#34;: [
           {
-            &#34;name&#34;: &#34;accum_from0&#34;
+            &#34;name&#34;: &#34;foldl_from0&#34;
           },
           {
             &#34;name&#34;: &#34;update_at&#34;
@@ -205,8 +253,10 @@
       <dd>std::vector</dd>
       <dt><b>Gen</b></dt>
       <dd>std::mt19937<dd>
+      <dt><b>Seed</b></dt>
+      <dd>1<dd>
       <dt><b>TimeStamp</b></dt>
-      <dd>2020-01-19 08:38:43</dd>
+      <dd>2020-01-21 00:06:52</dd>
       <dt><b>Status</b></dt>
       <dd>verified</dd>
       
