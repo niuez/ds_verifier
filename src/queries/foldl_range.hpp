@@ -42,16 +42,16 @@ namespace ds {
       size_checker.template check<Gen, Target, Checker>(gen, target, checker);
       size_type l, r;
       do {
-        l = std::uniform_int_distribution<size_type>(0, target.size() + 1)(gen);
-        r = std::uniform_int_distribution<size_type>(0, target.size() + 1)(gen);
-        if(r > l) std::swap(l, r);
-      } while(l < r);
+        l = std::uniform_int_distribution<size_type>(0, target.size())(gen);
+        r = std::uniform_int_distribution<size_type>(0, target.size())(gen);
+        if(r < l) std::swap(l, r);
+      } while(l == r);
       const result_type tres = target.template query<query_type>(arg_type { l, r });
       const result_type cres = checker.template query<query_type>(arg_type { l, r });
 
       if(tres != cres) {
         std::stringstream ss;
-        ss << "target results " << tres << " but checker results" << cres;
+        ss << "[" << l << ", " << r << ")" << "target results " << tres << " but checker results" << cres;
         throw fail_at("foldl_from0", ss.str());
       }
     }
